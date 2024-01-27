@@ -1,32 +1,35 @@
 import React, { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { render } from 'react-dom'
 
 function App() {
-  console[render , setRender] = useState(true);
-  useEffect(() =>{
-    setTimeout(()=>{
-      setRender(false);
-    })
-  })
+  const [render, setRender] = useState(true);
+
+  useEffect(() => {
+    setInterval(() => {
+      setRender(r => !r);
+    }, 5000)
+  }, []);
 
   return (
-  <MyComponent/>
+
+      {render ? <MyComponent/> : <div></div>}
+
   )
 }
+
+
 function MyComponent() {
   useEffect(() => {
-    console.error("Component mounted")
-    // Perform setup or data fetching here
+    console.error("component mounted");
 
     return () => {
-      console.log(" component Unmounted")
-      // Cleanup code (similar to componentWillUnmount)
+      console.log("component unmounted");
     };
   }, []);
 
-  // Render UI
+  return <div>
+    From inside my component
+  </div>
 }
+
 export default App
