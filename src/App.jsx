@@ -21,12 +21,7 @@ function App() {
   const mousePointer = useMousePointer();
 
   return (
-    useEffect(() => {
-      window.addEventListener('mousemove', handleMouseMove);
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-      };
-    }, []);)
+    
     <>
       Your mouse position is {mousePointer.x} {mousePointer.y}
     </>
